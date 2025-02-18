@@ -7,7 +7,6 @@ import SectionsComponents from '../components/SectionsComponents'
 const HomePage = () => {
   return (
     <>
-        <NavComponent />
         <HeroComponent />
         <SectionsComponents />
     </>

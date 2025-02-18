@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const SectionsComponents = () => {
     
@@ -55,12 +56,14 @@ const SectionsComponents = () => {
   
     const HTMLSections = sections.map((section) => {
         return (
-            <div className='bg-[#f97316] rounded-md flex flex-col justify-between hover:cursor-pointer hover:bg-[#c75b10]'>
-                <div className='overflow-hidden'>
-                    <img className='object-cover w-full h-48 rounded-t-md' src={section.img} alt={section.name} />
+            <Link to={section.route && section.route != "" ? section.route : "/"} >
+                <div className='bg-[#f97316] rounded-md flex flex-col justify-between hover:cursor-pointer hover:bg-[#c75b10]'>
+                    <div className='overflow-hidden'>
+                        <img className='object-cover w-full h-48 rounded-t-md' src={section.img} alt={section.name} />
+                    </div>
+                    <p className='text-white px-5 py-5 font-semibold'>{section.name} <span>&#8594;</span></p>
                 </div>
-                <p className='text-white px-5 py-5 font-semibold'>{section.name} <span>&#8594;</span></p>
-            </div>
+            </Link>
         );
     });
 
