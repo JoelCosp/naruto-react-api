@@ -10,6 +10,7 @@ import CharactersPage from './pages/CharactersPage'
 
 // Components
 import NavComponent from './components/NavComponent'
+import FooterComponent from './components/FooterComponent'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<HomePage />}/>
         <Route path='/characters' element={<CharactersPage />}/>
       </Routes>
+      <FooterComponent />
     </>
   )
 }
