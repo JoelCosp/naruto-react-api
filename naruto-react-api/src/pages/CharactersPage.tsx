@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getCharacters, Character } from "../services/CharactersServices";
+import { getCharacters, Object } from "../services/Services";
+
+import CardListComponent from "../components/CardListComponent";
 
 const CharactersPage = () => {
   // Definimos variable reactiva para guardar los personajes (sera de tipo Character)
-  const [characters, setCharacters] = useState<Character[]>([]);
+  const [characters, setCharacters] = useState<Object[]>([]);
   // Se ejecuta la peticion cuando el componente esta montado y una sola vez gracias a los []
   useEffect(() => {
     // Funcion async para poder esperar la respuesta de la funcion del service
@@ -18,17 +20,7 @@ const CharactersPage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Personajes</h1>
-      <ul>
-        {characters.map((char) => (
-          <li key={char.id}>
-            <h3>{char.name}</h3>
-            <img src={char.images[0]} alt={char.name} width="100" />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <CardListComponent data={characters}/>
   );
 };
 
