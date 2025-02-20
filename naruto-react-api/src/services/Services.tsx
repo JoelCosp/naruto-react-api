@@ -23,9 +23,23 @@ export const getCharacters = async (): Promise<{ characters: Object[] }> => {
 };
 
 export const getClans = async (): Promise<{ clans: Object[] }> => {
-    const response = await fetch("https://narutodb.xyz/api/clan");
-    const data = await response.json();
-    return data;
+    try {
+        // Llamamos a la API
+        const response = await fetch("https://narutodb.xyz/api/clan");
+        // Verificamos si la respuesta es exitosa (status 200 - 299)
+        if(!response.ok) {
+            throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }   
+        // Convertimos la respuesta a JSON
+        const data = await response.json();
+        // Retornamos los datos obtenidos
+        return data;
+    } catch(error) {
+        // Capturamos cualquier error que ocurra durante la solicitud
+        console.log("Error fetching clans: ", error);
+        // Relanzamos el error para que pueda ser manejado en donde se llame la funcion
+        throw error;
+    }
 }
 
 export const getVillages = async () : Promise<{ villages: Object[] }> => {

@@ -28,7 +28,7 @@ const SectionsComponents = () => {
             img: "https://narutodb.xyz/cards/kekkeigenkai.avif",
             route: "/kekkei-genkai",
         },
-        {
+        /* {
             id: 5,
             name: "Tailed Beasts",
             img: "https://narutodb.xyz/cards/tailedbeasts.webp",
@@ -51,7 +51,7 @@ const SectionsComponents = () => {
             name: "Akatsuki",
             img: "https://narutodb.xyz/cards/akatsuki.jpg",
             route: "/akatsuki",
-        },
+        }, */
     ];
   
     const HTMLSections = sections.map((section) => {
